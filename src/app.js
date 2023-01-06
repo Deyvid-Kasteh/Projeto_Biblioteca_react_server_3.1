@@ -13,10 +13,7 @@ class App {
 
     middleware() {
         this.server.use(express.json());
-        this.server.use(cors({ origin: "*" }));
-        this.server.use(
-          cors({ methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"] })
-        );
+        // this.server.use(cors());
     }
 
     routes() {

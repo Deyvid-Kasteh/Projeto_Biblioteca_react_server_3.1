@@ -18,7 +18,7 @@ export default async (req, res, next) => {
         req.userId = decoded.id;
         return next();
     } catch (error) {
-        return res.status(401).json({error : 'Token invalid.'})
+        return res.status(401).json({error : 'Token invalid. Erro no MIDDLEWARE'})
 
     }
 }
