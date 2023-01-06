@@ -14,6 +14,13 @@ routes.post("/sessions", SessionsController.create);
 routes.post("/users", UsersController.create);
 routes.get("/Perfil/:id", UsersController.showUser);
 
+routes.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Hello World! Sucesso! Deyvid é o cara",
+  });
+});
+
 
 
 // --- middleware
