@@ -21,8 +21,6 @@ routes.get("/", (req, res) => {
   });
 });
 
-
-
 // --- middleware
 routes.use(auth)
 
