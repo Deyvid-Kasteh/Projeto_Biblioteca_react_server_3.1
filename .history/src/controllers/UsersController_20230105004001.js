@@ -71,7 +71,7 @@ class UsersController {
     } catch (error) {
       console.error(error);
       return res.status(500).json({
-        error: "Erro no servidor interno TESTE",
+        error: "Erro no servidor interno",
       });
     }
   }

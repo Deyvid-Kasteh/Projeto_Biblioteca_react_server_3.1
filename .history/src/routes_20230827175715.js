@@ -1,11 +1,12 @@
-import { Router } from "express";
-import auth from "./middlewares/auth.js";
-import SessionsController from "./controllers/SessionsController.js";
-import HelloController from "./controllers/HelloController.js";
-import UsersController from "./controllers/UsersController.js";
-import RepositoriesController from "./controllers/RepositoriesController.js";
+import { Router } from 'express';
+import auth from './middlewares/auth.js';
+import SessionsController from './controllers/SessionsController.js';
+import HelloController from './controllers/HelloController.js';
+import UsersController from './controllers/UsersController.js';
+import RepositoriesController from './controllers/RepositoriesController.js';
 
 const routes = new Router();
+
 
 // --- Rota pública
 routes.get("/hello", HelloController.index);
@@ -21,15 +22,14 @@ routes.get("/", (req, res) => {
 });
 
 // --- middleware
-routes.use(auth);
+routes.use(auth)
 
 // --- Rosta protegida
 
 routes.patch("/Perfil/:id", UsersController.updateOne);
 routes.patch("/Perfil/:id/pic", UsersController.updatePic);
 routes.patch(
-  "/Perfil/:idUsuario/addBookToFavorites/:idLivro",
-  UsersController.addBookToFavorites
+  "/Perfil/:idUsuario/addBookToFavorites/:idLivro",UsersController.addBookToFavorites
 );
 
 routes.patch(
@@ -46,6 +46,7 @@ routes.delete(
   "/Perfil/:idUsuario/destroySeeLaterBook/:idLivro",
   UsersController.destroySeeLaterBook
 );
+
 
 // destroySeeLaterBook;
 
