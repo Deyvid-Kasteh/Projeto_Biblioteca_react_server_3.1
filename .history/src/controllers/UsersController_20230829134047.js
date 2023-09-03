@@ -139,7 +139,8 @@ class UsersController {
           $set: { details: { picture: pic } },
         }
       );
-      return res.status(200).json();
+      con
+      return res.status(200).json(user);
     } catch (error) {
       console.error(error);
       return res.status(500).json({
@@ -158,7 +159,7 @@ class UsersController {
         console.log("User not found");
         return res.status(404).json();
       }
-      const userUpdated = await User.findByIdAndUpdate(
+      await User.findByIdAndUpdate(
         { _id: idUsuario },
         {
           $addToSet: {
@@ -170,7 +171,12 @@ class UsersController {
           },
         }
       );
-      return res.status(200).json(userUpdated);
+        console.log(idUsuario);
+        console.log(idLivro);
+        console.log(imgLivro);
+        console.log(ttlLivro);
+
+      return res.status(200).json(user);
     } catch (error) {
       console.error(error);
       return res.status(500).json({
