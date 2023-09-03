@@ -157,21 +157,20 @@ class UsersController {
       if (!user) {
         console.log("User not found");
         return res.status(404).json();
-      } else {
-        const userUpdated = await User.findByIdAndUpdate(
-          { _id: idUsuario },
-          {
-            $addToSet: {
-              books: {
-                idLivro: idLivro,
-                imgLivro: imgLivro,
-                ttlLivro: ttlLivro,
-              },
+      } else {const userUpdated = await User.findByIdAndUpdate(
+        { _id: idUsuario },
+        {
+          $addToSet: {
+            books: {
+              idLivro: idLivro,
+              imgLivro: imgLivro,
+              ttlLivro: ttlLivro,
             },
-          }
-        );
-        return res.status(200).json(userUpdated);
-      }
+          },
+        }
+      );
+      return res.status(200).json(userUpdated);}
+
     } catch (error) {
       console.error(error);
       return res.status(500).json({
