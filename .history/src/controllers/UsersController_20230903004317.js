@@ -158,7 +158,7 @@ class UsersController {
         console.log("User not found");
         return res.status(404).json();
       } else {
-        await User.findByIdAndUpdate(
+        coawait User.findByIdAndUpdate(
           { _id: idUsuario },
           {
             $addToSet: {
@@ -170,7 +170,6 @@ class UsersController {
             },
           }
         );
-        const userUpdated = await User.findById(idUsuario);
         return res.status(200).json(userUpdated);
       }
     } catch (error) {

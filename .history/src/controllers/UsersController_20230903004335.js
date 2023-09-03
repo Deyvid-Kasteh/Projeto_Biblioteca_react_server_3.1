@@ -170,7 +170,7 @@ class UsersController {
             },
           }
         );
-        const userUpdated = await User.findById(idUsuario);
+        const userUpdated = 
         return res.status(200).json(userUpdated);
       }
     } catch (error) {
