@@ -23,6 +23,7 @@ class SessionController {
             console.log(error)
         }
         const { id } = user;
+        console.log(user)
         return res.json({
             user: {
                 name: user.name,

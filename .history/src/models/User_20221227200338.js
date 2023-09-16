@@ -28,12 +28,6 @@ const userSchema = new mongoose.Schema(
     booksSeeLater: {
       type: [],
     },
-    shoppingCart: {
-      type: []
-    },
-    ordered: {
-      type: []
-    }
   },
   {
     timestamps: true,

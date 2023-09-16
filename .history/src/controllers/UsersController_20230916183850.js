@@ -17,6 +17,7 @@ class UsersController {
     try {
       const { id } = req.params;
       const user = await User.findById(id);
+
       if (!user) {
         return res.status(404).json();
       }
@@ -57,6 +58,7 @@ class UsersController {
       // criptografa o password
       const createPasswordHash = await bcrypt.hash(password, 8);
 
+      // const encryptedPassword = await createPasswordHash(password)
       const newUser = await User.create({
         name,
         email,

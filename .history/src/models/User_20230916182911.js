@@ -31,9 +31,7 @@ const userSchema = new mongoose.Schema(
     shoppingCart: {
       type: []
     },
-    ordered: {
-      type: []
-    }
+    ordered
   },
   {
     timestamps: true,

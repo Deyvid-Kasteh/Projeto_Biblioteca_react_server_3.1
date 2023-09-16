@@ -9,7 +9,9 @@ import bcrypt from "bcryptjs";
 class SessionController {
     async create(req, res) {
         const { email, password } = req.body;
+
         const user = await User.findOne({ email });
+
         if (!user) {
             return res.status(401).json({
                 error: "User invalid"
@@ -17,12 +19,23 @@ class SessionController {
         }
         try {
             if (await bcrypt.compare(password, user.password)) {
+                console.log(password);
+                console.log(user.password);
+                console.log('é o mesmo');
             } else {
+                console.log("NÃO É O MESMO");
+
             }
+
+            console.log(password)
+            console.log(user.password);
+
         } catch (error) {
             console.log(error)
         }
+
         const { id } = user;
+        console.log(user)
         return res.json({
             user: {
                 name: user.name,

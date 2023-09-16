@@ -19,10 +19,12 @@ class SessionController {
             if (await bcrypt.compare(password, user.password)) {
             } else {
             }
+
         } catch (error) {
             console.log(error)
         }
         const { id } = user;
+        console.log(user)
         return res.json({
             user: {
                 name: user.name,
