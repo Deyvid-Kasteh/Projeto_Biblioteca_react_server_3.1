@@ -53,11 +53,6 @@ routes.delete(
   UsersController.destroySeeLaterBook
 );
 
-routes.delete(
-  "/Perfil/:idUsuario/destroyBookFromShoppingCart/:idLivro",
-  UsersController.destroyBookFromShoppingCart
-);
-
 // destroySeeLaterBook;
 
 // routes.get("/users", UsersController.index);

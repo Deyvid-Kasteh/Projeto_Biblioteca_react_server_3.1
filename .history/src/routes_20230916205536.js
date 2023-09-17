@@ -37,7 +37,7 @@ routes.patch(
 
 routes.patch(
   "/Perfil/:idUsuario/addBookToShoppingCart/:idLivro",
-  UsersController.addBookToShoppingCart
+  UsersController.addBookToSeeLater
 );
 
 
@@ -51,11 +51,6 @@ routes.delete(
 routes.delete(
   "/Perfil/:idUsuario/destroySeeLaterBook/:idLivro",
   UsersController.destroySeeLaterBook
-);
-
-routes.delete(
-  "/Perfil/:idUsuario/destroyBookFromShoppingCart/:idLivro",
-  UsersController.destroyBookFromShoppingCart
 );
 
 // destroySeeLaterBook;

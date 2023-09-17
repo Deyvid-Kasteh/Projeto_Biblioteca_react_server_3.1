@@ -261,6 +261,7 @@ class UsersController {
     try {
       const { idUsuario, idLivro } = req.params;
       console.error(idLivro);
+
       const user = await User.findById(idUsuario);
       if (!user) {
         console.log("User not found");
@@ -307,41 +308,21 @@ class UsersController {
         const userUpdated = await User.findById(idUsuario);
         return res.status(200).json(userUpdated);
       }
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({
-        error: "Erro no servidor interno",
-      });
-    }
+    } catch (error) {}
   }
 
-  async destroyBookFromShoppingCart(req, res) {
-    try {
-      const { idUsuario, idLivro } = req.params;
-      console.error(idLivro);
-      const user = await User.findById(idUsuario);
-      if (!user) {
-        console.log("User not found");
-        return res.status(404).json();
-      } else {
-        await User.findByIdAndUpdate(
-          { _id: idUsuario },
-          {
-            $pull: {
-              shoppingCart: { idLivro: idLivro },
-            },
-          }
-        );
-      }
-      const userUpdated = await User.findById(idUsuario);
-      return res.status(200).json(userUpdated);
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({
-        error: "Erro no servidor interno",
-      });
-    }
+  async removeBookFromShoppingCart(req, res) {
+    
   }
+
+
+
+
+
+
+
+
+
 }
 
 export default new UsersController();

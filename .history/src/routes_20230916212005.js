@@ -54,8 +54,8 @@ routes.delete(
 );
 
 routes.delete(
-  "/Perfil/:idUsuario/destroyBookFromShoppingCart/:idLivro",
-  UsersController.destroyBookFromShoppingCart
+  "/Perfil/:idUsuario/destroySeeLaterBook/:idLivro",
+  UsersController.destroySeeLaterBook
 );
 
 // destroySeeLaterBook;

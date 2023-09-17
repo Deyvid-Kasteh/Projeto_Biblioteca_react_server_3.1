@@ -323,25 +323,27 @@ class UsersController {
       if (!user) {
         console.log("User not found");
         return res.status(404).json();
-      } else {
-        await User.findByIdAndUpdate(
-          { _id: idUsuario },
-          {
-            $pull: {
-              shoppingCart: { idLivro: idLivro },
-            },
-          }
-        );
       }
-      const userUpdated = await User.findById(idUsuario);
-      return res.status(200).json(userUpdated);
+
+
     } catch (error) {
       console.error(error);
       return res.status(500).json({
         error: "Erro no servidor interno",
       });
+
     }
+
   }
+
+
+
+
+
+
+
+
+
 }
 
 export default new UsersController();
