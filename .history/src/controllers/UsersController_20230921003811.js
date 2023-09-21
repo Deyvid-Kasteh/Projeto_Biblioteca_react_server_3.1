@@ -300,8 +300,7 @@ class UsersController {
                 idLivro: idLivro,
                 imgLivro: imgLivro,
                 ttlLivro: ttlLivro,
-                price: price,
-                quantity: quantity
+                
               },
             },
           }
