@@ -334,6 +334,11 @@ class UsersController {
         const userCheckboxState = newArray[0].checkboxState;
 
 
+
+
+
+
+
         if (!userCheckboxState) {
           await User.findOneAndUpdate(
             {

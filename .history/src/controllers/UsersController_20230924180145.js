@@ -331,7 +331,16 @@ class UsersController {
            return el.idLivro === idLivro;
          });
 
-        const userCheckboxState = newArray[0].checkboxState;
+
+
+
+
+        const userCheckboxState = newCasa[0].checkboxState;
+
+
+
+
+
 
 
         if (!userCheckboxState) {
