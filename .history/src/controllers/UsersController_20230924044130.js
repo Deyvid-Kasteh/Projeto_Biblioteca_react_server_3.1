@@ -325,7 +325,7 @@ class UsersController {
       const user = await User.findById(idUsuario);
       if (user) {
         const userCheckboxState = user?.shoppingCart?.checkboxState;
-        if (!userCheckboxState) {
+        if (userCheckboxState == false) {
           await User.findOneAndUpdate(
             {
               _id: idUsuario,
