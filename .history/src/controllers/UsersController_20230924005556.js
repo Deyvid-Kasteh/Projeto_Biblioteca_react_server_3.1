@@ -297,7 +297,7 @@ class UsersController {
           {
             $addToSet: {
               shoppingCart: {
-                checkboxState: false,
+                checkboxState: 
                 idLivro: idLivro,
                 imgLivro: imgLivro,
                 ttlLivro: ttlLivro,
