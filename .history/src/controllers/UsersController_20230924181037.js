@@ -323,16 +323,16 @@ class UsersController {
       const { idUsuario, idLivro } = req.params;
       // const { idLivro } = req.body;
       const user = await User.findById(idUsuario);
-
       if (user) {
 
-         const newArray = user.shoppingCart.filter(function (
+         const newArray = user.shoppingCart.checkboxState?.filter(function (
            el
          ) {
            return el.idLivro === idLivro;
          });
 
         const userCheckboxState = newArray[0].checkboxState;
+
 
         if (!userCheckboxState) {
           await User.findOneAndUpdate(

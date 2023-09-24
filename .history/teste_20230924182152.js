@@ -1,4 +1,4 @@
-import User from "./src/models/User.js";
+import User from "../models/User.js";
 
 async function changeCheckboxState() {
   try {
@@ -10,12 +10,15 @@ async function changeCheckboxState() {
     const user = await User.findById(idUsuario);
 
     if (user) {
-      const newArray = user.shoppingCart.filter(function (el) {
+      const newArray = user.shoppingCart.checkboxState?.filter(function (el) {
         return el.idLivro === idLivro;
       });
 
         const userCheckboxState = newArray[0].checkboxState;
         console.log(userCheckboxState);
+
+
+
     //   if (!userCheckboxState) {
     //     await User.findOneAndUpdate(
     //       {
@@ -45,22 +48,19 @@ async function changeCheckboxState() {
     //   }
     //   const userUpdated = await User.findById(idUsuario);
     //   return res.status(200).json(userUpdated);
-    }
-    else {
+    } else {
       console.log("User not found");
-    //   return res.status(404).json();
+      return res.status(404).json();
     }
   } catch (error) {
     console.error(error);
-    // return res.status(500).json({
-    //   error: "Erro no servidor interno",
-    // });
+    return res.status(500).json({
+      error: "Erro no servidor interno",
+    });
   }
 }
 
-// let newCasa = casa.shoppingCart.filter(function (el) {
-//   return el.idLivro === "m3lvDwAAQBAJ";
-// });
-// console.log(newCasa);
-
-changeCheckboxState()
+let newCasa = casa.shoppingCart.filter(function (el) {
+  return el.idLivro === "m3lvDwAAQBAJ";
+});
+console.log(newCasa);

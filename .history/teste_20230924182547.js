@@ -10,7 +10,7 @@ async function changeCheckboxState() {
     const user = await User.findById(idUsuario);
 
     if (user) {
-      const newArray = user.shoppingCart.filter(function (el) {
+      const newArray = user.shoppingCart.checkboxState?.filter(function (el) {
         return el.idLivro === idLivro;
       });
 
@@ -48,7 +48,7 @@ async function changeCheckboxState() {
     }
     else {
       console.log("User not found");
-    //   return res.status(404).json();
+      return res.status(404).json();
     }
   } catch (error) {
     console.error(error);

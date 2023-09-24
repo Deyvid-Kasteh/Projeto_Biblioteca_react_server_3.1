@@ -10,7 +10,7 @@ async function changeCheckboxState() {
     const user = await User.findById(idUsuario);
 
     if (user) {
-      const newArray = user.shoppingCart.filter(function (el) {
+      const newArray = user.shoppingCart.checkb.filter(function (el) {
         return el.idLivro === idLivro;
       });
 
