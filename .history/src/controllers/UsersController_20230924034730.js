@@ -318,14 +318,21 @@ class UsersController {
     }
   }
 
+
+
+
+
   async changeCheckboxState(req, res) {
     try {
-      const { idUsuario, idLivro } = req.params;
-      // const { idLivro } = req.body;
+      const { idUsuario } = req.params;
+      const { idLivro} = req.body;
       const user = await User.findById(idUsuario);
       if (user) {
-        const userCheckboxState = user?.shoppingCart?.checkboxState;
-        if (userCheckboxState == false) {
+        console.log("User not found");
+        return res.status(404).json();
+      } else {
+        const userCheckboxState = user.shoppingCart.checkboxState;
+        if (userCheckboxState) {
           await User.findByIdAndUpdate(
             {
               _id: idUsuario,
@@ -336,8 +343,8 @@ class UsersController {
                 "shoppingCart.$.checkboxState": true,
               },
             }
-          );
-        } else if (userCheckboxState == true) {
+          )
+        } else {
           await User.findByIdAndUpdate(
             {
               _id: idUsuario,
@@ -345,23 +352,21 @@ class UsersController {
             },
             {
               $set: {
-                "shoppingCart.$.checkboxState": false,
+                "shoppingCart.$.checkboxState": true,
               },
             }
-          );
-        } else {
-          return res.status(404).json();
+          )
         }
         const userUpdated = await User.findById(idUsuario);
         return res.status(200).json(userUpdated);
-      } else {
-        console.log("User not found");
-        return res.status(404).json();
       }
 
+
+
+
       //  if (!user) {
-      //  console.log("User not found");
-      //  return res.status(404).json();
+      //    console.log("User not found");
+      //    return res.status(404).json();
       //  } else {
       //    const userCheckboxState = user.shoppingCart.checkboxState;
       //    if (userCheckboxState) {
@@ -392,13 +397,42 @@ class UsersController {
       //    const userUpdated = await User.findById(idUsuario);
       //    return res.status(200).json(userUpdated);
       //  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     } catch (error) {
       console.error(error);
       return res.status(500).json({
         error: "Erro no servidor interno",
       });
     }
+
+
   }
+
+
+
+
+
+
+
+
+
+
+
 
   async destroyBookFromShoppingCart(req, res) {
     try {

@@ -41,9 +41,10 @@ routes.patch(
 );
 
 
+
 routes.patch(
-  "/Perfil/:idUsuario/changeCheckboxState/:idLivro",
-  UsersController.changeCheckboxState
+  "/Perfil/:idUsuario/addBookToShoppingCart/:idLivro",
+  UsersController.addBookToShoppingCart
 );
 
 

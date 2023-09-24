@@ -41,11 +41,6 @@ routes.patch(
 );
 
 
-routes.patch(
-  "/Perfil/:idUsuario/changeCheckboxState/:idLivro",
-  UsersController.changeCheckboxState
-);
-
 
 
 

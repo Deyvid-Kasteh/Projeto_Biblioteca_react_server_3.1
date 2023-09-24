@@ -41,23 +41,6 @@ routes.patch(
 );
 
 
-routes.patch(
-  "/Perfil/:idUsuario/changeCheckboxState/:idLivro",
-  UsersController.changeCheckboxState
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
 routes.delete(
   "/Perfil/:idUsuario/destroyBookfromFavorites/:idLivro",
   UsersController.destroyBookfromFavorites

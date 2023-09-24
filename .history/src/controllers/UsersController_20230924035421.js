@@ -321,7 +321,7 @@ class UsersController {
   async changeCheckboxState(req, res) {
     try {
       const { idUsuario, idLivro } = req.params;
-      // const { idLivro } = req.body;
+      const { idLivro } = req.body;
       const user = await User.findById(idUsuario);
       if (user) {
         const userCheckboxState = user?.shoppingCart?.checkboxState;

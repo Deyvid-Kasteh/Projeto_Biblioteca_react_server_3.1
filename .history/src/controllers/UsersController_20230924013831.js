@@ -302,96 +302,15 @@ class UsersController {
                 imgLivro: imgLivro,
                 ttlLivro: ttlLivro,
                 price: price,
-                quantity: quantity,
+                quantity: quantity
               },
             },
+            
           }
         );
         const userUpdated = await User.findById(idUsuario);
         return res.status(200).json(userUpdated);
       }
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({
-        error: "Erro no servidor interno",
-      });
-    }
-  }
-
-  async changeCheckboxState(req, res) {
-    try {
-      const { idUsuario, idLivro } = req.params;
-      // const { idLivro } = req.body;
-      const user = await User.findById(idUsuario);
-      if (user) {
-        const userCheckboxState = user?.shoppingCart?.checkboxState;
-        if (userCheckboxState == false) {
-          await User.findByIdAndUpdate(
-            {
-              _id: idUsuario,
-              "shoppingCart.idLivro": idLivro,
-            },
-            {
-              $set: {
-                "shoppingCart.$.checkboxState": true,
-              },
-            }
-          );
-        } else if (userCheckboxState == true) {
-          await User.findByIdAndUpdate(
-            {
-              _id: idUsuario,
-              "shoppingCart.idLivro": idLivro,
-            },
-            {
-              $set: {
-                "shoppingCart.$.checkboxState": false,
-              },
-            }
-          );
-        } else {
-          return res.status(404).json();
-        }
-        const userUpdated = await User.findById(idUsuario);
-        return res.status(200).json(userUpdated);
-      } else {
-        console.log("User not found");
-        return res.status(404).json();
-      }
-
-      //  if (!user) {
-      //  console.log("User not found");
-      //  return res.status(404).json();
-      //  } else {
-      //    const userCheckboxState = user.shoppingCart.checkboxState;
-      //    if (userCheckboxState) {
-      //      await User.findByIdAndUpdate(
-      //        {
-      //          _id: idUsuario,
-      //          "shoppingCart.idLivro": idLivro,
-      //        },
-      //        {
-      //          $set: {
-      //            "shoppingCart.$.checkboxState": true,
-      //          },
-      //        }
-      //      );
-      //    } else {
-      //      await User.findByIdAndUpdate(
-      //        {
-      //          _id: idUsuario,
-      //          "shoppingCart.idLivro": idLivro,
-      //        },
-      //        {
-      //          $set: {
-      //            "shoppingCart.$.checkboxState": true,
-      //          },
-      //        }
-      //      );
-      //    }
-      //    const userUpdated = await User.findById(idUsuario);
-      //    return res.status(200).json(userUpdated);
-      //  }
     } catch (error) {
       console.error(error);
       return res.status(500).json({
