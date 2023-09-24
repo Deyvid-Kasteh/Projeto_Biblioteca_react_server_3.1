@@ -338,7 +338,7 @@ class UsersController {
             }
           );
         } else if (userCheckboxState == true) {
-          await User.findOneAndUpdate(
+          await User.findByIdAndUpdate(
             {
               _id: idUsuario,
               "shoppingCart.idLivro": idLivro,
@@ -350,7 +350,7 @@ class UsersController {
             }
           );
         } else {
-          return res.status(400).json();
+          return res.status(404).json();
         }
         const userUpdated = await User.findById(idUsuario);
         return res.status(200).json(userUpdated);
