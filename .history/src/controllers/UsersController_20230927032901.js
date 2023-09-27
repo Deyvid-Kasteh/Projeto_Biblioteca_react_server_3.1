@@ -377,19 +377,20 @@ class UsersController {
       if (user) {
         const filtro = {};
 
-        if (!checkAllBooks) {
+        if (!state) {
           // Setar todos os checkboxes para TRUE
 
           const modificacao = {
             $set: { "user.shoppingCart.$[].checkboxState": true },
           };
           await User.updateMany(filtro, modificacao);
-        } else if (checkAllBooks) {
+        } else if (state) {
           // Setar todos os checkboxes para FALSE
           const modificacao = {
             $set: { "user.shoppingCart.$[].checkboxState": false },
           };
           await User.updateMany(filtro, modificacao);
+
         } else {
           return res.status(400).json();
         }

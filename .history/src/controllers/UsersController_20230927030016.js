@@ -371,34 +371,60 @@ class UsersController {
 
   async changeAllCheckboxStates(req, res) {
     try {
-      const { idUsuario, checkAllBooks } = req.params;
+      const { idUsuario, state } = req.params;
       const user = await User.findById(idUsuario);
+
 
       if (user) {
         const filtro = {};
+        const modificacao = {
+          $set: { "user.shoppingCart.$[].checkboxState": "novoValor" },
+        };
+        if (!state) {
 
-        if (!checkAllBooks) {
-          // Setar todos os checkboxes para TRUE
+          await User.updateMany(filtro,)
 
-          const modificacao = {
-            $set: { "user.shoppingCart.$[].checkboxState": true },
-          };
-          await User.updateMany(filtro, modificacao);
-        } else if (checkAllBooks) {
-          // Setar todos os checkboxes para FALSE
-          const modificacao = {
-            $set: { "user.shoppingCart.$[].checkboxState": false },
-          };
-          await User.updateMany(filtro, modificacao);
+
+
+
+
+
+
+        } else if (state) {
         } else {
           return res.status(400).json();
         }
         const userUpdated = await User.findById(idUsuario);
         return res.status(200).json(userUpdated);
+
       } else {
-        console.log("User not found");
-        return res.status(404).json();
+
       }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     } catch (error) {
       console.error(error);
       return res.status(500).json({

@@ -27,7 +27,8 @@
     quantity: 1,
     ttlLivro: "Extraordinário - Edição Especial",
   },
-],
+];
+
 
 [
   {
