@@ -380,8 +380,10 @@ class UsersController {
     try {
       const { idUsuario, checkAllBookState } = req.params;
       const user = await User.findById(idUsuario);
+
       if (user) {
-        console.error(typeof checkAllBookState);
+        console.error(checkAllBookState);
+
         await User.updateMany(
           {},
           {
@@ -390,6 +392,11 @@ class UsersController {
             },
           }
         );
+
+
+
+
+      
         const userUpdated = await User.findById(idUsuario);
         return res.status(200).json(userUpdated);
       } else {

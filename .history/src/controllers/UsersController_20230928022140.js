@@ -380,16 +380,43 @@ class UsersController {
     try {
       const { idUsuario, checkAllBookState } = req.params;
       const user = await User.findById(idUsuario);
+
       if (user) {
-        console.error(typeof checkAllBookState);
-        await User.updateMany(
-          {},
-          {
-            $set: {
-              "shoppingCart.$[].checkboxState": `${checkAllBookState}`,
-            },
-          }
-        );
+        console.error(checkAllBookState);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        if (checkAllBookState) {
+          // Setar todos os checkboxes para TRUE
+          await User.updateMany(
+            {},
+            {
+              $set: { "shoppingCart.$[].checkboxState": true },
+            }
+          );
+        } else if (!checkAllBookState) {
+          // Setar todos os checkboxes para FALSE
+          await User.updateMany(
+            {},
+            {
+              $set: { "shoppingCart.$[].checkboxState": false },
+            }
+          );
+        } else {
+          return res.status(400).json();
+        }
         const userUpdated = await User.findById(idUsuario);
         return res.status(200).json(userUpdated);
       } else {
