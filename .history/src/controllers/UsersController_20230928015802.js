@@ -375,22 +375,30 @@ class UsersController {
       const user = await User.findById(idUsuario);
 
       if (user) {
+        const filtro = {};
+
         if (checkAllBookState) {
           // Setar todos os checkboxes para TRUE
-          await User.updateMany(
-            {},
-            {
-              $set: { "shoppingCart.$[].checkboxState": true },
-            }
-          );
+          const modificacao = {
+            $set: { "user.shoppingCart.$[].checkboxState": true },
+          };
+          try {
+            await User.updateMany(
+              {},
+              {
+                $set: { "ushoppingCart.$[].checkboxState": true },
+              }
+            );
+          } catch (error) {          console.error("TRUE ERROR");
+}           console.error("TRUE jota");
+
         } else if (!checkAllBookState) {
           // Setar todos os checkboxes para FALSE
-          await User.updateMany(
-            {},
-            {
-              $set: { "shoppingCart.$[].checkboxState": false },
-            }
-          );
+          const modificacao = {
+            $set: { "user.shoppingCart.$[].checkboxState": false },
+          };
+          await User.updateMany(filtro, modificacao);
+          console.error("FALSE");
         } else {
           return res.status(400).json();
         }

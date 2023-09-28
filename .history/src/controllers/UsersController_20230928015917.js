@@ -388,9 +388,10 @@ class UsersController {
           await User.updateMany(
             {},
             {
-              $set: { "shoppingCart.$[].checkboxState": false },
+              $set: { "shoppingCart.$[].checkboxState": true },
             }
           );
+          console.error("FALSE");
         } else {
           return res.status(400).json();
         }

@@ -391,6 +391,7 @@ class UsersController {
               $set: { "shoppingCart.$[].checkboxState": false },
             }
           );
+          console.error("FALSE");
         } else {
           return res.status(400).json();
         }
