@@ -391,7 +391,8 @@ class UsersController {
           {},
           {
             $set: {
-              "shoppingCart.$[].checkboxState": JSON.parse(checkAllBookState),
+              "shoppingCart.$[].checkboxState": JSON.parse(
+                checkAllBookState),
             },
           }
         );

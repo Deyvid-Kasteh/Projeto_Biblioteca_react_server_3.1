@@ -386,12 +386,11 @@ class UsersController {
 
 
 
-
         await User.updateMany(
           {},
           {
             $set: {
-              "shoppingCart.$[].checkboxState": JSON.parse(checkAllBookState),
+              "shoppingCart.$[].checkboxState": `${checkAllBookState}`,
             },
           }
         );

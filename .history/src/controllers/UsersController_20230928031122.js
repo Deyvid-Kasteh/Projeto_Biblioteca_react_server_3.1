@@ -382,7 +382,7 @@ class UsersController {
       const user = await User.findById(idUsuario);
       if (user) {
         console.error(typeof checkAllBookState);
-
+        
 
 
 
@@ -391,7 +391,7 @@ class UsersController {
           {},
           {
             $set: {
-              "shoppingCart.$[].checkboxState": JSON.parse(checkAllBookState),
+              "shoppingCart.$[].checkboxState": `${checkAllBookState}`,
             },
           }
         );
