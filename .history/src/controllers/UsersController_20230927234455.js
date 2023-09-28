@@ -384,9 +384,8 @@ class UsersController {
           };
           try {
             await User.updateMany(filtro, modificacao);
-          } catch (error) {          console.error("TRUE ERROR");
-}           console.error("TRUE");
-
+          } catch (error) {}
+          console.error("TRUE");
         } else if (!checkAllBookState) {
           // Setar todos os checkboxes para FALSE
           const modificacao = {

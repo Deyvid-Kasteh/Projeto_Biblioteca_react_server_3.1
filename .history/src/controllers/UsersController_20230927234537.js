@@ -384,7 +384,7 @@ class UsersController {
           };
           try {
             await User.updateMany(filtro, modificacao);
-          } catch (error) {          console.error("TRUE ERROR");
+          } catch (error) {          console.error("TRUE");
 }           console.error("TRUE");
 
         } else if (!checkAllBookState) {
