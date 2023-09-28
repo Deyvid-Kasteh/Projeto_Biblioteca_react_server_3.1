@@ -386,7 +386,7 @@ class UsersController {
         } else if (!checkAllBookState) {
           // Setar todos os checkboxes para FALSE
           const modificacao = {
-            "$set": { "user.shoppingCart.$[].checkboxState": false },
+            $set: { "user.shoppingCart.$[].checkboxState": false },
           };
           await User.updateMany(filtro, modificacao);
         } else {
