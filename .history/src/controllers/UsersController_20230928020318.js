@@ -382,8 +382,15 @@ class UsersController {
       const user = await User.findById(idUsuario);
 
       if (user) {
-        console.error(checkAllBookState);
-         if (!checkAllBookState) {
+        if (checkAllBookState) {
+          // Setar todos os checkboxes para TRUE
+          await User.updateMany(
+            {},
+            {
+              $set: { "shoppingCart.$[].checkboxState": true },
+            }
+          );
+        } else if (!checkAllBookState) {
           // Setar todos os checkboxes para FALSE
           await User.updateMany(
             {},
@@ -425,7 +432,7 @@ class UsersController {
 
 
 
-
+  
 
   async destroyBookFromShoppingCart(req, res) {
     try {

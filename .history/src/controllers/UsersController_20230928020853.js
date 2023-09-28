@@ -382,7 +382,7 @@ class UsersController {
       const user = await User.findById(idUsuario);
 
       if (user) {
-        console.error(checkAllBookState);
+        console.error()
          if (!checkAllBookState) {
           // Setar todos os checkboxes para FALSE
           await User.updateMany(
