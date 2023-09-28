@@ -391,7 +391,7 @@ class UsersController {
             $set: { "user.shoppingCart.$[].checkboxState": false },
           };
           await User.updateMany(filtro, modificacao);
-                console.error("FALSE");
+                console.error("false");
 
         } else {
           return res.status(400).json();

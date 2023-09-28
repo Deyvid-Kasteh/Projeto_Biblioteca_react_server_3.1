@@ -383,7 +383,7 @@ class UsersController {
             $set: { "user.shoppingCart.$[].checkboxState": true },
           };
           await User.updateMany(filtro, modificacao);
-                console.error("TRUE");
+                console.error(error);
 
         } else if (!checkAllBookState) {
           // Setar todos os checkboxes para FALSE
@@ -391,8 +391,6 @@ class UsersController {
             $set: { "user.shoppingCart.$[].checkboxState": false },
           };
           await User.updateMany(filtro, modificacao);
-                console.error("FALSE");
-
         } else {
           return res.status(400).json();
         }
