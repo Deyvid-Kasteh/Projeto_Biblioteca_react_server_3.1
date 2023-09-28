@@ -383,12 +383,7 @@ class UsersController {
             $set: { "user.shoppingCart.$[].checkboxState": true },
           };
           try {
-            await User.updateMany(
-              {},
-              {
-                $set: { "user.shoppingCart.$[].checkboxState": true },
-              }
-            );
+            await User.updateMany({}, modificacao);
           } catch (error) {          console.error("TRUE ERROR");
 }           console.error("TRUE jota");
 
