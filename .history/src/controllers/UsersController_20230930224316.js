@@ -405,7 +405,7 @@ class UsersController {
           { _id: idUsuario, "shoppingCart.idLivro": idLivro },
           {
             $set: {
-              "shoppingCart.$.quantity": JSON.parse(quantity),
+              "shoppingCart.$.quantity": JSON.parse(quantity,
             },
           }
         );
