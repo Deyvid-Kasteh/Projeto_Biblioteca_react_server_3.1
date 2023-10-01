@@ -52,8 +52,9 @@ routes.patch(
 );
 
 
-routes.patch("/Perfil/:idUsuario/changeBookQuantity/:idLivro/:quantity",
-UsersController.changeBookQuantity);
+routes.patch(
+  ""
+)
 
 
 

@@ -49,11 +49,11 @@ routes.patch(
 routes.patch(
   "/Perfil/:idUsuario/changeAllCheckboxStates/state/:checkAllBookState",
   UsersController.changeAllCheckboxStates
+
+
+
+  
 );
-
-
-routes.patch("/Perfil/:idUsuario/changeBookQuantity/:idLivro/:quantity",
-UsersController.changeBookQuantity);
 
 
 

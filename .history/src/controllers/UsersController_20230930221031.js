@@ -396,31 +396,44 @@ class UsersController {
     }
   }
 
+
   async changeBookQuantity(req, res) {
     try {
       const { idUsuario, idLivro, quantity } = req.params;
       const user = await User.findById(idUsuario);
       if (user) {
-        await User.findOneAndUpdate(
-          { _id: idUsuario, "shoppingCart.idLivro": idLivro },
-          {
-            $set: {
-              "shoppingCart.$.quantity": quantity,
-            },
-          }
-        );
-        const userUpdated = await User.findById(idUsuario);
-        return res.status(200).json(userUpdated);
+        await User.findOneAndUpdate
+
       } else {
-        return res.status(400).json();
+
       }
+
+
+
+
     } catch (error) {
-      console.error(error);
-      return res.status(500).json({
-        error: "Erro no servidor interno",
-      });
+
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   async destroyBookFromShoppingCart(req, res) {
     try {
